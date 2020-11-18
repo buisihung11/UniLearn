@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Only change code above this line -->
+
+    <div class="container-fluid" style="margin: 0 auto">
+      <h3 class="text-primary text-center">jQuery Playground</h3>
+      <div class="row">
+        <!-- LEFT -->
+        <div class="col-xs-6">
+          <h4>#left-well</h4>
+          <div class="well" id="left-well">
+            <button class="btn btn-default target" id="target1">
+              #target1
+            </button>
+            <button class="btn btn-default target" id="target2">
+              #target2
+            </button>
+            <button class="btn btn-default target" id="target3">
+              #target3
+            </button>
+          </div>
+          <button id="addLeftButton" onclick="addLeftButton()">
+            Them 1 button
+          </button>
+        </div>
+        <!-- RIGHT -->
+        <div class="col-xs-6">
+          <h4>#right-well</h4>
+          <div class="well" id="right-well">
+            <button class="btn btn-default target" id="target4">
+              #target4
+            </button>
+            <button class="btn btn-default target" id="target5">
+              #target5
+            </button>
+            <button class="btn btn-default target" id="target6">
+              #target6
+            </button>
+          </div>
+          <button id="addRightButton" onclick="addRightButton()">
+            Them 1 button
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var cot_trai = document.getElementById("left-well");
+      var cot_phai = document.getElementById("right-well");
+      var leftCount = 1;
+      var rightCount = 1;
+      function addLeftButton() {
+        // 1. Tao mot element button
+        var leftBtn = document.createElement("button");
+        leftBtn.innerHTML = "Button trai" + leftCount++;
+        leftBtn.className = "btn";
+        // 2. Add vao trong cot ben trai
+        cot_trai.appendChild(leftBtn);
+      }
+      function addRightButton() {
+        // 1. Tao mot node button
+        var rightBtn = document.createElement("button");
+        rightBtn.innerHTML = "Button phai" + rightCount++;
+        rightBtn.className = "btn";
+        // 2. Add vao trong cot ben phai
+        cot_phai.appendChild(rightBtn);
+      }
+
+      // 1. Chinh background cho the div#left, div#right
+
+      cot_trai.style.backgroundColor = "grey";
+      cot_trai.style.padding = "20px";
+
+      cot_phai.style.backgroundColor = "pink";
+      cot_phai.style.padding = "15px";
+
+      //2 . Thay doi mau cua tat ca nhung class la btn thanh mau den chu trang
+      var buttons = document.getElementsByClassName("btn");
+      for (var i = 0; i < buttons.length; i++) {
+        var btn = buttons[i];
+        btn.style.backgroundColor = "red";
+        btn.style.color = "white";
+      }
+
+      // 3. Thay doi mau the h4 bang cach getElementByTagName
+      var theh4s = document.getElementsByTagName("h4");
+      for (var i = 0; i < theh4s.length; i++) {
+        var the = theh4s[i];
+        the.style.color = "blue";
+        the.style.fontSize = "30px";
+      }
+
+      // 4. QuerySelector
+      var leftbuttons = document.querySelectorAll("div#left-well .btn");
+
+      for (let i = 0; i < leftbuttons.length; i++) {
+        const leftBtn = leftbuttons[i];
+        leftBtn.style.backgroundColor = "red";
+      }
+
+      var rightbuttons = document.querySelectorAll("div#right-well .btn");
+
+      for (let i = 0; i < rightbuttons.length; i++) {
+        const rightBtn = rightbuttons[i];
+        rightBtn.style.backgroundColor = "blue";
+      }
+    </script>
+  </body>
+</html>
