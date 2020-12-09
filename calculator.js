@@ -30,6 +30,7 @@ function setUpHandler() {
       bamSo(index);
     };
   }
+
   // 2. Phan bam operator
   document.getElementById("num-plus").onclick = function () {
     bamOperator("+");

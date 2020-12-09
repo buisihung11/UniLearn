@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery Tutorial</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1 id="title"></h1>
+    <div id="news"></div>
+    <label for="content">Nhap noi dung bai viet</label> <br />
+    <input id="content" name="content" /> <br />
+    <button id="addNew">Add new</button>
+
+    <script>
+      var title = $("#title");
+      var newsContainer = $("#news");
+      var btnAddNew = $("button#addNew");
+      var inputNew = $("input#content");
+      title.text("Hot News Today");
+
+      title.css({
+        color: "red",
+        "font-weight": "bold",
+      });
+
+      var listNews = $("<ul>");
+
+      for (let index = 0; index < 3; index++) {
+        var aNew = $("<li>");
+        aNew.text("Bai viet " + (index + 1));
+        listNews.append(aNew);
+      }
+      newsContainer.append(listNews);
+
+      btnAddNew.click(function () {
+        var newContent = inputNew.val();
+        var addNew = $("<li>");
+        addNew.text(newContent);
+
+        addNew.click(function () {
+          addNew.remove();
+        });
+
+        newsContainer.children("ul").prepend(addNew);
+
+        // newsContainer.append(addNew);
+      });
+      //   btnAddNew.on("click", function () {});
+
+      console.log("btnAddNew", btnAddNew);
+      console.log("btnAddNewJS", document.getElementById("addNew"));
+      console.log("title", title);
+    </script>
+  </body>
+</html>
